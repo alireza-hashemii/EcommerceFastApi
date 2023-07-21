@@ -32,9 +32,7 @@ def user_add(request: Request,
              password: int = Form(media_type="application/x-www-form-urlencoded"),
              db: Session = Depends(get_db)
     ):
-    new_user = models.User(name = username, email = email ,password = password)
-    db.add(new_user)
-    db.commit()
+    
 
     url = router.url_path_for("home")
     return RedirectResponse(url=url, status_code=status.HTTP_303_SEE_OTHER)
