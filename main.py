@@ -1,12 +1,12 @@
-from fastapi import FastAPI , Request , Depends
+from fastapi import FastAPI
 from db.database import engine
 from db import models
-from sqlalchemy.orm import Session
 from starlette.templating import Jinja2Templates
 from routers import user , cloth
 
 
 app = FastAPI()
+
 app.include_router(user.router)
 app.include_router(cloth.router)
 

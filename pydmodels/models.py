@@ -1,6 +1,5 @@
-from pydantic import BaseModel , FilePath  
-import random
-import enum
+from pydantic import BaseModel  
+
 
 class User(BaseModel):
     name: str
@@ -8,20 +7,22 @@ class User(BaseModel):
     password: int
     address: str | None = ""
 
-class Choices(enum.Enum):
-    f = 'f'
-    m = 'm'
+# class Choices(enum.Enum):
+#     f = 'f'
+#     m = 'm'
 
-class Category(enum.Enum):
-    pants = 'pants'
-    jacket = 'jacket'
-    shirt = "shirt"
+# class Category(enum.Enum):
+#     pants = 'pants'
+#     jacket = 'jacket'
+#     shirt = "shirt"
 
 
-class PCloth(BaseModel):
-    price : float
-    gender :  Choices
-    name : str | None = None
-    detail : str 
-    category : Category
-    image : FilePath
+# class ClothScheme(BaseModel):
+    
+#     model_config = ConfigDict(from_attributes=True)
+#     price : float
+#     gender :  str
+#     name : str 
+#     detail : str 
+#     category : str
+
