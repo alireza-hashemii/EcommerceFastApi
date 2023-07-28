@@ -192,38 +192,24 @@ h3.ico4 { background-image:url(images/ico4.gif);}
       <!-- Products -->
       <div class="products">
         <div class="cl">&nbsp;</div>
+        
+        
+
         <ul>
-          <li> <a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-            <div class="product-info">
-              <h3>LOREM IPSUM</h3>
-              <div class="product-desc">
-                <h4>WOMEN’S</h4>
-                <p>Lorem ipsum dolor sit<br />
-                  amet</p>
-                <strong class="price">$58.99</strong> </div>
-            </div>
-          </li>
-          <li> <a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-            <div class="product-info">
-              <h3>LOREM IPSUM</h3>
-              <div class="product-desc">
-                <h4>WOMEN’S</h4>
-                <p>Lorem ipsum dolor sit<br />
-                  amet</p>
-                <strong class="price">$58.99</strong> </div>
-            </div>
-          </li>
-          <li class="last"> <a href="#"><img src="css/images/big1.jpg" alt="" /></a>
-            <div class="product-info">
-              <h3>LOREM IPSUM</h3>
-              <div class="product-desc">
-                <h4>WOMEN’S</h4>
-                <p>Lorem ipsum dolor sit<br />
-                  amet</p>
-                <strong class="price">$58.99</strong> </div>
-            </div>
-          </li>
+          {% for product in products %}
+            <li> <a href="#"><img src="{{ url_for('static', path='pic' ~ product._id ~ '.png') }}" height="190" width="230" alt="" /></a>
+              <div class="product-info">
+                <h3>{{product.name}}</h3>
+                <div class="product-desc">
+                  <h4>{{product.gender}}</h4>
+                  <p>{{product.detail}}</p>
+                  <strong class="price">${{product.price}}</strong> </div>
+              </div>
+            </li>
+            {% endfor %}
         </ul>
+       
+
         <div class="cl">&nbsp;</div>
       </div>
       <!-- End Products -->

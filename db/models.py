@@ -13,6 +13,7 @@ class Cloth(Base):
     __tablename__ = "cloth"
     _id = Column(Integer,unique=True,index=True,primary_key=True)
     price = Column(Integer)
+    post_number = Column(Integer)
     name = Column(String)
     category = Column(String)
     gender = Column(String)

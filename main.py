@@ -1,14 +1,16 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from db.database import engine
 from db import models
 from starlette.templating import Jinja2Templates
-from routers import user , cloth
+from routers import user, cloth
 
 
 app = FastAPI()
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(user.router)
 app.include_router(cloth.router)
+
 
 
 templates = Jinja2Templates(directory="templates")
